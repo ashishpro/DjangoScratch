@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 django = "==2.0"
 "psycopg2" = "*"
+pytest = "*"
+pytest-django = "*"
+pytest-cov = "*"
+pdbpp = "*"
+djangorestframework = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"

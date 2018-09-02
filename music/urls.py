@@ -4,5 +4,5 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    url(r'^main/', views.index, name='index')
+    url(r'^music/', views.index, name='index')
 ]
