@@ -1,1 +1,4 @@
 .idea/
+.coverage
+htmlcov/
+.pytest_cache/

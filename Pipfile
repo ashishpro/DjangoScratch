@@ -11,6 +11,7 @@ pytest-django = "*"
 pytest-cov = "*"
 pdbpp = "*"
 djangorestframework = "*"
+django-admin-list-filter-dropdown = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"

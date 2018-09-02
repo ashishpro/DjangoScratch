@@ -11,23 +11,18 @@ for r in range(1980, (timezone.now().year + 1)):
 class Album(models.Model):
     artist = models.CharField(max_length=50)
     album_title = models.TextField(null=True, blank=True)
-    genre = models.CharField(max_length=50)
-    album_logo = models.CharField(max_length=1000)
-    _year = models.IntegerField(default=timezone.now().year, null=True, db_column='year')
-
-    @property
-    def year(self):
-        return self._year
-
-    @year.setter
-    def year(self, value):
-        if value > timezone.now().year:
-            ValidationError("Future year can't be selected")
-        self._year = value
+    genre = models.CharField(max_length=50,null=True, blank=True)
+    album_logo = models.CharField(max_length=1000,null=True, blank=True)
+    year = models.IntegerField(default=timezone.now().year, null=True)
 
     class Meta:
-        ordering = ['_year']
+        ordering = ['year']
         db_table = 'album'
+
+    def save(self, **kwargs):
+        if self.year > timezone.now().year:
+            raise ValidationError("Invalid Year")
+        super(Album, self).save(**kwargs)
 
 
 class Songs(models.Model):
