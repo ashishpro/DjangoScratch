@@ -8,6 +8,7 @@ django = "==2.0"
 "psycopg2" = "*"
 
 [dev-packages]
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.6"
