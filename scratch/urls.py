@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import include
+from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
     url(r'^', include('music.urls')),
     url('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
+              static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 if settings.DEBUG:
@@ -29,3 +31,4 @@ if settings.DEBUG:
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
